@@ -4,6 +4,7 @@ if(process.env.NODE_ENV === 'production') {
     }
 } else {
     module.exports = {
-        mongoURI: 'mongodb://localhost/vidjot-dev'
+        mongoURI: 'mongodb://kecman:1407988@ds111319.mlab.com:11319/vidjot-prod'
+        //mongoURI: 'mongodb://localhost/vidjot-dev'
     }
 }

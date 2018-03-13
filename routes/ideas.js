@@ -45,7 +45,7 @@ router.post('/', ensureAuthenticated, (req, res) => {
             .save()
             .then(idea => {
                 req.flash('success-msg', 'Video idea added.');
-                res.redirect('/');
+                res.redirect('/ideas');
             });
     }
 });
@@ -67,7 +67,7 @@ router.get('/edit/:id', ensureAuthenticated, (req, res) => {
 
 router.put('/:id', ensureAuthenticated, (req, res) => {
     Idea.findOne({
-        _id: req.param.id
+        _id: req.params.id
     }).then(idea => {
         idea.title = req.body.title;
         idea.details = req.body.details;
@@ -86,7 +86,7 @@ router.delete('/:id', ensureAuthenticated, (req, res) => {
         _id: req.params.id
     }).then(() => {
         req.flash('success-msg', 'Video idea removed.');
-        res.redirect('/');
+        res.redirect('/ideas');
     });
 });
 

@@ -12,7 +12,7 @@ module.exports = function(passport) {
                 if (!user) {
                     return done(null, false, {message: 'No user found'});
                 }
-                bcrypt.compare(password, user.passport, (err, isMatch) => {
+                bcrypt.compare(password, user.password, (err, isMatch) => {
                     if (err) throw err;
                     if (isMatch) {
                         return done(null, user);

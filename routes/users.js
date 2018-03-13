@@ -36,7 +36,7 @@ router.post('/register', (req, res) => {
             .then(user => {
                 if (user) {
                     req.flash('error_msg', 'Email already registered!');
-                    res.redirect('/login');
+                    res.redirect('/users/login');
                 } else {
                     const newUser = {
                         name: req.body.name,
@@ -52,7 +52,7 @@ router.post('/register', (req, res) => {
                                 .save()
                                 .then(user => {
                                     req.flash('success_msg', 'You are now registered and can log in');
-                                    res.redirect('/login');
+                                    res.redirect('/users/login');
                                 })
                                 .catch(err => {
                                     console.log(err);
@@ -76,7 +76,7 @@ router.post('/login', (req, res, next) => {
 router.get('/logout', (req, res) => {
     req.logout();
     req.flash('success_msg', 'You are logged out.');
-    res.redirect('/login');
+    res.redirect('/users/login');
 });
 
 module.exports = router;
