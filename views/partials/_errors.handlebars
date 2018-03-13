@@ -1,0 +1,9 @@
+<!-- Passport error (po default se zove error) -->
+{{#if error}}
+     <div class="alert alert-danger">{{message}}</div>
+{{/if}}
+
+<!-- Flash messages -->
+{{#each errors}}
+    <div class="alert alert-danger">{{text}}</div>
+{{/each}}
